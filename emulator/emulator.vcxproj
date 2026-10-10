@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{6F937B08-E15D-4D5E-B698-61CEB7F7530C}</ProjectGuid>
+    <RootNamespace>emulator</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)..\build\Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\.vsbuild\emulator\Debug\</IntDir>
+    <TargetName>RobloxPlayerBeta</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)..\build\</OutDir>
+    <IntDir>$(ProjectDir)..\.vsbuild\emulator\Release\</IntDir>
+    <TargetName>RobloxPlayerBeta</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ControlFlowGuard>Guard</ControlFlowGuard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)res;$(ProjectDir)..\deps\lzma;$(ProjectDir)..\deps\lzma\C;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <ModuleDefinitionFile>res\emulator.def</ModuleDefinitionFile>
+      <ImportLibrary>$(IntDir)RobloxPlayerBeta.lib</ImportLibrary>
+      <AdditionalDependencies>bcrypt.lib;WindowsApp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <CETCompat>true</CETCompat>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <Optimization>MaxSpeed</Optimization>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <ControlFlowGuard>Guard</ControlFlowGuard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)res;$(ProjectDir)..\deps\lzma;$(ProjectDir)..\deps\lzma\C;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <ModuleDefinitionFile>res\emulator.def</ModuleDefinitionFile>
+      <ImportLibrary>$(IntDir)RobloxPlayerBeta.lib</ImportLibrary>
+      <AdditionalDependencies>bcrypt.lib;WindowsApp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <CETCompat>true</CETCompat>
+      <AdditionalOptions>/Brepro %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\hooks.cpp" />
+    <ClCompile Include="src\hwid.cpp" />
+    <ClCompile Include="src\image.cpp" />
+    <ClCompile Include="src\init.cpp" />
+    <ClCompile Include="src\services.cpp" />
+    <ClCompile Include="src\state.cpp" />
+    <ClCompile Include="src\util.cpp" />
+    <ClCompile Include="..\deps\lzma\mem7z.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4244;4267;4389;4018;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="..\deps\lzma\C\7zAlloc.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\deps\lzma\C\7zArcIn.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\deps\lzma\C\7zBuf.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\deps\lzma\C\7zCrc.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\deps\lzma\C\7zCrcOpt.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\deps\lzma\C\7zDec.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\deps\lzma\C\7zStream.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\deps\lzma\C\Bcj2.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\deps\lzma\C\Bra.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\deps\lzma\C\Bra86.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\deps\lzma\C\CpuArch.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\deps\lzma\C\Delta.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\deps\lzma\C\Lzma2Dec.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\deps\lzma\C\LzmaDec.c">
+      <CompileAs>CompileAsC</CompileAs>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>Z7_EXTRACT_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\emulator\common.h" />
+    <ClInclude Include="include\config\config.h" />
+    <ClInclude Include="include\emulator\hooks.h" />
+    <ClInclude Include="include\emulator\hwid.h" />
+    <ClInclude Include="include\emulator\image.h" />
+    <ClInclude Include="include\emulator\init.h" />
+    <ClInclude Include="include\emulator\offsets.h" />
+    <ClInclude Include="include\emulator\services.h" />
+    <ClInclude Include="include\emulator\state.h" />
+    <ClInclude Include="include\emulator\util.h" />
+    <ClInclude Include="res\resource.h" />
+    <ClInclude Include="..\deps\lzma\mem7z.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\emulator.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="payload\RobloxPlayerBeta.bin" />
+    <None Include="res\emulator.def" />
+    <None Include="..\deps\7zip\7z.exe" />
+    <None Include="..\deps\7zip\7z.dll" />
+    <None Include="..\deps\7zip\license.txt" />
+  </ItemGroup>
+  <Target Name="PackPayload" BeforeTargets="ResourceCompile" Inputs="$(ProjectDir)payload\RobloxPlayerBeta.bin;$(SolutionDir)deps\7zip\7z.exe;$(SolutionDir)deps\7zip\7z.dll" Outputs="$(IntDir)RobloxPlayerBeta.7z">
+    <Error Condition="!Exists('$(SolutionDir)deps\7zip\7z.exe')" Text="Bundled 7-Zip executable not found at $(SolutionDir)deps\7zip\7z.exe" />
+    <Error Condition="!Exists('$(SolutionDir)deps\7zip\7z.dll')" Text="Bundled 7-Zip runtime not found at $(SolutionDir)deps\7zip\7z.dll" />
+    <MakeDir Directories="$(IntDir)" />
+    <Delete Files="$(IntDir)RobloxPlayerBeta.7z" />
+    <Exec Command="&quot;$(SolutionDir)deps\7zip\7z.exe&quot; a -t7z -m0=BCJ2 &quot;-m1=LZMA2:d256m:fb273&quot; &quot;-m2=LZMA2:d64k&quot; &quot;-m3=LZMA2:d64k&quot; -mb0:1 -mb0s1:2 -mb0s2:3 -mx=9 -mmt=on &quot;$(IntDir)RobloxPlayerBeta.7z&quot; &quot;$(ProjectDir)payload\RobloxPlayerBeta.bin&quot;" />
+  </Target>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files"><UniqueIdentifier>{5CB186E0-2FC5-442F-8ED7-C88102995B56}</UniqueIdentifier></Filter>
+    <Filter Include="Header Files"><UniqueIdentifier>{2F15149E-5A80-414D-8386-D84D09301098}</UniqueIdentifier></Filter>
+    <Filter Include="Configuration"><UniqueIdentifier>{0A67F47B-696E-4CDA-A342-C2A9077E4855}</UniqueIdentifier></Filter>
+    <Filter Include="Resources"><UniqueIdentifier>{34574B94-8D93-425D-B6E1-121FC1A950CA}</UniqueIdentifier></Filter>
+    <Filter Include="Payload"><UniqueIdentifier>{188E2362-1371-4DC4-8275-506B78F437F8}</UniqueIdentifier></Filter>
+    <Filter Include="Dependencies"><UniqueIdentifier>{CCBFC6F7-8C55-4BE0-8B78-AE25ADE0145D}</UniqueIdentifier></Filter>
+    <Filter Include="Dependencies\LZMA"><UniqueIdentifier>{12204279-C321-4AF8-81D2-B9758D2D61EE}</UniqueIdentifier></Filter>
+    <Filter Include="Dependencies\7-Zip"><UniqueIdentifier>{D4024DC0-AB5A-45AB-A2DC-F3C1A9F470D6}</UniqueIdentifier></Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dllmain.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\hooks.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\hwid.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\image.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\init.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\services.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\state.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="src\util.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\mem7z.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\C\7zAlloc.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\C\7zArcIn.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\C\7zBuf.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\C\7zCrc.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\C\7zCrcOpt.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\C\7zDec.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\C\7zStream.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\C\Bcj2.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\C\Bra.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\C\Bra86.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\C\CpuArch.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\C\Delta.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\C\Lzma2Dec.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+    <ClCompile Include="..\deps\lzma\C\LzmaDec.c"><Filter>Dependencies\LZMA</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\config\config.h"><Filter>Configuration</Filter></ClInclude>
+    <ClInclude Include="include\emulator\common.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\emulator\hooks.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\emulator\hwid.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\emulator\image.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\emulator\init.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\emulator\offsets.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\emulator\services.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\emulator\state.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="include\emulator\util.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="res\resource.h"><Filter>Resources</Filter></ClInclude>
+    <ClInclude Include="..\deps\lzma\mem7z.h"><Filter>Dependencies\LZMA</Filter></ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\emulator.rc"><Filter>Resources</Filter></ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="payload\RobloxPlayerBeta.bin"><Filter>Payload</Filter></None>
+    <None Include="res\emulator.def"><Filter>Resources</Filter></None>
+    <None Include="..\deps\7zip\7z.exe"><Filter>Dependencies\7-Zip</Filter></None>
+    <None Include="..\deps\7zip\7z.dll"><Filter>Dependencies\7-Zip</Filter></None>
+    <None Include="..\deps\7zip\license.txt"><Filter>Dependencies\7-Zip</Filter></None>
+  </ItemGroup>
+</Project>
